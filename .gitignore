@@ -1,0 +1,16 @@
+# .gitignore
+
+# Don't lock versions for a library.
+/package-lock.json
+
+/node_modules/
+
+# Distribution files.
+/dist/*
+/types/
+!/dist/esm
+/dist/esm/*
+!/dist/esm/package.json
+
+# Test reports.
+/coverage/

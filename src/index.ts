@@ -1,6 +1,6 @@
 // src/index.js
 
-export const version = '0.1.0-dev';
+export const version = '0.1.0';
 
 /**
  * Add two numbers.

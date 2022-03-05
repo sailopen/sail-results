@@ -32,10 +32,23 @@ describe('Sailwave import', function () {
       const parsed = importJson(testSeries1);
 
       const results = parseFromJson(<Record<string, unknown>>parsed.results, {
-        seriesId: 'seriesId',
+        seriesId: 'sId',
       });
-      expect(results['seriesId|67|71'].elapsedSeconds).to.equal(1234);
-      expect(results['seriesId|68|71'].elapsedSeconds).to.be.null;
+      expect(Object.keys(results).sort()).to.eql([
+        'sId|67|71',
+        'sId|67|73',
+        'sId|67|74',
+        'sId|68|71',
+        'sId|68|73',
+        'sId|68|74',
+        'sId|69|71',
+        'sId|69|73',
+        'sId|69|74',
+      ]);
+      expect(results['sId|67|71'].elapsedSeconds).to.equal(1234);
+      expect(results['sId|68|71'].elapsedSeconds).to.be.null;
     });
   });
+
+  // We want to parse results from different series into a single database.
 });

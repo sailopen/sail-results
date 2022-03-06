@@ -1,5 +1,5 @@
 // src/index.js
 
-export const version = '0.3.1';
+export const version = '0.4.0-dev';
 
 export { importJson } from './import/sailwave-import';

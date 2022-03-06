@@ -27,8 +27,8 @@
   "types": "types/index.d.ts",
   "scripts": {
     "build": "npm run lint:fix && npm run build:build",
-    "build:build": "tsc --project tsconfig.json && tsc --project tsconfig-types.json && rollup -c && rimraf tsc-temp",
-    "ci": "rimraf tsc-temp && npm run lint && npm run test:unit && npm run build:build && npm run test:dist",
+    "build:build": "tsc --project tsconfig.json && tsc --project tsconfig-types.json && rollup -c",
+    "ci": "rimraf dist esm types && npm run lint && npm run test:unit && npm run build:build && npm run test:dist",
     "lint": "eslint . && prettier . --check",
     "lint:fix": "eslint . --fix && prettier . --write",
     "test:coverage": "c8 --src=src --all --reporter=text --reporter=html npm run test:unit",

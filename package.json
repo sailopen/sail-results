@@ -1,6 +1,6 @@
 {
   "name": "sail-results",
-  "version": "0.1.0",
+  "version": "0.3.1",
   "description": "TypeScript module for working with results from sailing races.",
   "repository": {
     "type": "git",
@@ -19,12 +19,11 @@
     "dist",
     "types"
   ],
-  "xtypes": "types/index.d.ts",
   "type": "commonjs",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run lint:fix && npm run build:build",
-    "build:build": "tsc --project tsconfig.json",
+    "build:build": "tsc --project tsconfig.json && tsc --project tsconfig-cjs.json",
     "ci": "npm run lint && npm run test:unit && npm run build:build && npm run test:dist",
     "lint": "eslint . && prettier . --check",
     "lint:fix": "eslint . --fix && prettier . --write",
@@ -37,6 +36,7 @@
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-typescript": "^7.16.7",
     "@rollup/plugin-babel": "^5.3.1",
+    "@tsconfig/recommended": "^1.0.1",
     "@types/chai": "^4.3.0",
     "@types/mocha": "^9.1.0",
     "chai": "^4.3.6",

@@ -6,11 +6,10 @@
 /node_modules/
 
 # Distribution files.
-/dist/*
+/dist/
 /types/
-!/dist/esm
-/dist/esm/*
-!/dist/esm/package.json
+/esm/
+/cjs/
 
 # Test reports.
 /coverage/

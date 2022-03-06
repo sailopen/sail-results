@@ -11,10 +11,14 @@ const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
 
 const iife = readFileSync(pkg.browser, 'utf8');
 
-const { version } = eval(`(() => {${iife}; return ${moduleName}})()`);
+const SailResults = eval(`(() => {${iife}; return ${moduleName}})()`);
 
 describe('The browser distribution', function () {
   it('should have the same version as package.json', function () {
-    expect(version).to.equal(pkg.version);
+    expect(SailResults.version).to.equal(pkg.version);
+  });
+
+  it('should only expose what we want to expose', function () {
+    expect(Object.keys(SailResults).sort()).to.eql(['importJson', 'version']);
   });
 });

@@ -2,6 +2,8 @@
 
 # Distribution files.
 /dist/
+/esm/
+/cjs/
 /types/
 
 # Test reports.

@@ -1,7 +1,6 @@
 import { expect } from 'chai';
 
 import { readFileSync, writeFileSync } from 'fs';
-import { parseFromJson } from '../../../src/import/result';
 
 import { importJson } from '../../../src/import/sailwave-import';
 

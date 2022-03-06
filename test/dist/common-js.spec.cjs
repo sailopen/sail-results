@@ -2,7 +2,7 @@
 
 const { expect } = require('chai');
 
-const { version } = require('../../dist/cjs');
+const { version } = require('../..');
 const pkg = require('../../package.json');
 
 describe('The Common JS module distribution', function () {

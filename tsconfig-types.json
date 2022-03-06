@@ -1,0 +1,9 @@
+{
+  "include": ["src/**/*"],
+  "extends": "@tsconfig/node12/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outFile": "types/index.d.ts"
+  }
+}

@@ -12,7 +12,7 @@ import { babel } from '@rollup/plugin-babel';
 import pkg from './package.json';
 
 // Minimum node.js version for CommonJS build.
-// const node = '12'; // Until EOL 2022-04-30
+const node = '12'; // Until EOL 2022-04-30
 // const node = '14'; // Until EOL 2023-04-30
 // const node = '16'; // Until EOL 2024-04-30
 
@@ -24,7 +24,7 @@ const external = []; // e.g. ['axios'];
 const globals = {}; // e.g { axios: 'axios' };
 
 // Entry file(s) for build.
-const input = ['dist/index.js'];
+const input = ['esm/index.js'];
 
 // Human timestamp for banner.
 const datetime = new Date().toISOString().substring(0, 19).replace('T', ' ');
@@ -78,20 +78,19 @@ export default [
         banner,
         file: pkg.module,
         format: 'es',
-        sourcemap: true,
+        // sourcemap: true,
       },
     ],
     plugins: [
       ...plugins,
       babel({
-        extensions,
-        presets: ['@babel/preset-typescript', '@babel/preset-env'],
+        presets: ['@babel/preset-env'],
         babelHelpers: 'bundled',
-        targets: { node },
+        targets,
       }),
     ],
   },
-
+  */
   // CommonJS (for Node) build.
   {
     input,
@@ -101,19 +100,16 @@ export default [
         banner,
         file: pkg.main,
         format: 'cjs',
-        sourcemap: true,
         esModule: false,
       },
     ],
     plugins: [
       ...plugins,
       babel({
-        extensions,
-        presets: ['@babel/preset-typescript', '@babel/preset-env'],
+        presets: ['@babel/preset-env'],
         babelHelpers: 'bundled',
         targets: { node },
       }),
     ],
   },
-  */
 ];

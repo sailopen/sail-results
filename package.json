@@ -1,6 +1,6 @@
 {
   "name": "sail-results",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "TypeScript module for working with results from sailing races.",
   "repository": {
     "type": "git",

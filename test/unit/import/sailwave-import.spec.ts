@@ -29,11 +29,8 @@ describe('Sailwave import', function () {
 
   describe('Parse results from Sailwave import JSON', function () {
     it('should parse results', function () {
-      const parsed = importJson(testSeries1);
+      const { results } = importJson(testSeries1);
 
-      const results = parseFromJson(<Record<string, unknown>>parsed.results, {
-        seriesId: 'sId',
-      });
       expect(Object.keys(results).sort()).to.eql([
         'sId|67|71',
         'sId|67|73',

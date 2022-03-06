@@ -12,7 +12,7 @@ import { babel } from '@rollup/plugin-babel';
 import pkg from './package.json';
 
 // Minimum node.js version for CommonJS build.
-const node = '12'; // Until EOL 2022-04-30
+// const node = '12'; // Until EOL 2022-04-30
 // const node = '14'; // Until EOL 2023-04-30
 // const node = '16'; // Until EOL 2024-04-30
 
@@ -24,7 +24,7 @@ const external = []; // e.g. ['axios'];
 const globals = {}; // e.g { axios: 'axios' };
 
 // Entry file(s) for build.
-const input = ['src/index.ts'];
+const input = ['dist/index.js'];
 
 // Human timestamp for banner.
 const datetime = new Date().toISOString().substring(0, 19).replace('T', ' ');
@@ -40,8 +40,6 @@ const plugins = [
   // resolve(), // so Rollup can find CommonJS modules.
   // commonjs(), // so Rollup can convert CommonJS to ES modules.
 ];
-
-const extensions = ['js', 'jsx', 'ts', 'tsx'];
 
 export default [
   // browser-friendly iife build
@@ -62,12 +60,7 @@ export default [
     plugins: [
       ...plugins,
       babel({
-        extensions,
-        presets: [
-          '@babel/preset-typescript',
-          // ['@babel/preset-env', { useBuiltIns: 'entry', corejs: '3.21' }],
-          '@babel/preset-env',
-        ],
+        presets: ['@babel/preset-env'],
         babelHelpers: 'bundled',
         targets,
       }),
@@ -76,6 +69,7 @@ export default [
   },
 
   // ES module (for bundlers) build.
+  /*
   {
     input,
     external,
@@ -121,4 +115,5 @@ export default [
       }),
     ],
   },
+  */
 ];

@@ -1,4 +1,9 @@
-export type SailwaveImportFile = Record<string, unknown>;
+import type { Result } from './result';
+import { parseFromJson as parseResults } from './result';
+
+export type SailwaveImportFile = {
+  results: Record<string, Result>;
+};
 
 /*
 'columns',
@@ -31,5 +36,7 @@ export const fixJson = (text: string): string => {
  * @param text JSON string to import from.
  */
 export const importJson = (text: string): SailwaveImportFile => {
-  return JSON.parse(text);
+  const json = JSON.parse(text);
+  json.results = parseResults(json.results, { seriesId: 'sId' });
+  return json;
 };

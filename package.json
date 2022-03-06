@@ -22,10 +22,9 @@
   "xtypes": "types/index.d.ts",
   "type": "commonjs",
   "main": "dist/index.js",
-  "browser": "dist/sail-results.min.js",
   "scripts": {
     "build": "npm run lint:fix && npm run build:build",
-    "build:build": "tsc --project tsconfig.json && rollup -c",
+    "build:build": "tsc --project tsconfig.json",
     "ci": "npm run lint && npm run test:unit && npm run build:build && npm run test:dist",
     "lint": "eslint . && prettier . --check",
     "lint:fix": "eslint . --fix && prettier . --write",

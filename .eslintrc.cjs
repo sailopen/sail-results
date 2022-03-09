@@ -14,7 +14,7 @@ module.exports = {
   rules: {},
   overrides: [
     {
-      files: ['**/*.{test,spec}.{c,m,}js'],
+      files: ['**/*.{test,spec}.{cj,mj,j,t}s'],
       env: { jest: true },
       extends: ['plugin:mocha/recommended'],
     },

@@ -19,6 +19,9 @@ describe('The browser distribution', function () {
   });
 
   it('should only expose what we want to expose', function () {
-    expect(Object.keys(SailResults).sort()).to.eql(['importJson', 'version']);
+    expect(Object.keys(SailResults).sort()).to.eql([
+      'createSeriesFromBlwFile',
+      'version',
+    ]);
   });
 });

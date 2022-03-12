@@ -1,5 +1,5 @@
 // src/index.js
 
-export const version = '0.4.0-dev';
+export { createSeriesFromBlwFile } from './import/series';
 
-export { importJson } from './import/sailwave-import';
+export { version } from './version';

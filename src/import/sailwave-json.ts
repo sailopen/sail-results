@@ -1,8 +1,5 @@
-import type { Result } from './result';
-import { parseFromJson as parseResults } from './result';
-
 export type SailwaveImportFile = {
-  results: Record<string, Result>;
+  [key: string]: unknown;
 };
 
 /*
@@ -37,6 +34,5 @@ export const fixJson = (text: string): string => {
  */
 export const importJson = (text: string): SailwaveImportFile => {
   const json = JSON.parse(text);
-  json.results = parseResults(json.results, { seriesId: 'sId' });
   return json;
 };

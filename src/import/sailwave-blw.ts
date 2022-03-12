@@ -1,4 +1,4 @@
-import { version as generatorVersion } from '../index';
+import { version as generatorVersion } from '../version';
 
 type ImportErrorOptions = {
   errors?: unknown[];
@@ -51,7 +51,14 @@ export type SailwaveSeries = {
 // "compprivatenotes","How about in ""notes"", particularly with","71",""
 const lineSplitRegexp = /^"([a-z0-9]*)","(.*)","([0-9]*)","([0-9]*)"$/;
 
-export const importBlw = (text: string): SailwaveSeries => {
+export const importBlwFile = (
+  text: string,
+  file?: {
+    lastModified: number;
+    name: string;
+    size: number;
+  }
+): SailwaveSeries => {
   const isoTime = new Date().toISOString().substring(0, 19) + 'Z';
 
   const globals: Record<string, string> = {};

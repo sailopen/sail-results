@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { readFileSync } from 'fs';
 import { version } from '../../../src/index';
 
-import { importBlw } from '../../../src/import/sailwave-blw';
+import { importBlwFile } from '../../../src/import/sailwave-blw';
 
 const testSeries1 = readFileSync('./test/data/test-series-1.blw', 'utf8');
 /*
@@ -12,8 +12,7 @@ const testSeriesEmpty = readFileSync(
 );
 */
 
-const parsed = importBlw(testSeries1);
-console.log(parsed);
+const parsed = importBlwFile(testSeries1);
 
 describe('Sailwave blw file import', function () {
   it('should import a minimal blw export file', function () {
